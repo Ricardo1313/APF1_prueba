@@ -262,3 +262,115 @@ button[type="submit"]:hover {
     transform: scale(1.1);
 }
 
+
+/* Estilos para Banner - movil */
+
+.banner-movil {
+    background-color: #0077cc;
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+
+.texto-animado {
+    display: inline-block;
+    padding-left: 100%;
+    animation: moverTexto 15s linear infinite;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+@keyframes moverTexto {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Estilos para prueba */
+
+.descripcion-empresa {
+    background-color: #0077cc; /* Igual que el banner */
+    color: white;              /* Texto blanco */
+    padding: 30px 20px;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* sombra suave */
+}
+
+.descripcion-empresa h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.descripcion-empresa p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slider .producto {
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slider .producto.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.redes-sociales a {
+    margin: 0 10px;
+    color: #fff; /* O el color que quieras */
+    text-decoration: none;
+}
+
+.redes-sociales i:hover {
+    color: #00aaff;
+    transition: 0.3s;
+}
+
+.descuentos {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.descuentos h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.descuentos .producto {
+    display: inline-block;
+    width: 250px;
+    margin: 10px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.descuentos .producto p {
+    font-size: 16px;
+    color: #222;
+}
+
+.descuentos .producto del {
+    color: #999;
+    margin-right: 5px;
+}
