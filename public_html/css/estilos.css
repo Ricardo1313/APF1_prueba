@@ -262,48 +262,16 @@ button[type="submit"]:hover {
     transform: scale(1.1);
 }
 
-
-/* Estilos para prueba */
-
-.banner-movil {
+.descripcion-empresa {
     background-color: #0077cc;
     color: white;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 10px 0;
-    margin-bottom: 20px;
-}
-
-
-.texto-animado {
-    display: inline-block;
-    padding-left: 100%;
-    animation: moverTexto 15s linear infinite;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-@keyframes moverTexto {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-
-
-.descripcion-empresa {
-    background-color: #0077cc; /* Igual que el banner */
-    color: white;              /* Texto blanco */
     padding: 30px 20px;
     margin: 40px auto;
     width: 90%;
     max-width: 1000px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* sombra suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .descripcion-empresa h2 {
@@ -334,7 +302,7 @@ button[type="submit"]:hover {
 
 .redes-sociales a {
     margin: 0 10px;
-    color: #fff; /* O el color que quieras */
+    color: #fff;
     text-decoration: none;
 }
 
@@ -372,68 +340,69 @@ button[type="submit"]:hover {
 
 .descuentos .producto del {
     color: #999;
-    margin-right: 5px;}
-    
-        /* Estilos específicos para la grilla 2x4 */
-        .grilla-productos {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, auto);
-            gap: 1.5rem;
-            margin: 2rem 0;
-            border: 2px solid #2c3e50;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .producto-grilla {
-            border: 1px solid #3498db;
-            border-radius: 6px;
-            padding: 1rem;
-            background: white;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .producto-grilla img {
-            width: 100%;
-            height: 150px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-        
-        .producto-grilla h3 {
-            color: #2c3e50;
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
-        }
-        
-        .producto-grilla .precio {
-            color: #e74c3c;
-            font-weight: bold;
-            margin: 0.5rem 0;
-        }
-        
-        .producto-grilla .descripcion {
-            font-size: 0.9rem;
-            flex-grow: 1;
-        }
-        
-        .producto-grilla .especificaciones {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
-            padding-left: 1rem;
-        }
-        
-        @media (max-width: 1200px) {
-            .grilla-productos {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(4, auto);
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .grilla-productos {
-                grid-template-columns: 1fr;
-            }
-        }
+    margin-right: 5px;
+}
+
+/* Estilos específicos para la grilla 2x4 */
+.grilla-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 1.5rem;
+    margin: 2rem 0;
+    border: 2px solid #2c3e50;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.producto-grilla {
+    border: 1px solid #3498db;
+    border-radius: 6px;
+    padding: 1rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-grilla img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.producto-grilla h3 {
+    color: #2c3e50;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.producto-grilla .precio {
+    color: #e74c3c;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.producto-grilla .descripcion {
+    font-size: 0.9rem;
+    flex-grow: 1;
+}
+
+.producto-grilla .especificaciones {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    padding-left: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .grilla-productos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, auto);
+    }
+}
+
+@media (max-width: 600px) {
+    .grilla-productos {
+        grid-template-columns: 1fr;
+    }
+}

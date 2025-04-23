@@ -6,179 +6,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>TechOffice - Inicio</title> 
-    <link rel="stylesheet" href="css/estilos.css"> <!-- Enlaza una hoja de estilos externa -->
+    <link rel="stylesheet" href="css/estilos.css">
     <!-- Cargar Font Awesome desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 
 <body> 
 
-    <header> <!-- Encabezado de la página -->
-        <div class="logo"> <!-- Contenedor del logo y nombre del sitio -->
-        <img src="imagenes/logo.jpg" alt="Logo TechOffice" width="150">
-        <h1>TechOffice</h1> <!-- Título del sitio -->
+    <header>
+        <div class="logo">
+            <img src="imagenes/logo.jpg" alt="Logo TechOffice" width="150">
+            <h1>TechOffice</h1>
         </div>
 
-        <nav> <!-- Menú de navegación -->
-            <ul> <!-- Lista no ordenada para los enlaces -->
-                <li><a href="index.html">Inicio</a></li> <!-- Enlace a la página de inicio -->
-                <li><a href="accesorios-laptops.html">Laptops</a></li> <!-- Enlace a sección de laptops -->
-                <li><a href="accesorios-tablets.html">Tablets</a></li> <!-- Enlace a sección de tablets -->
-                <li><a href="cables-conectores.html">Cables</a></li> <!-- Enlace a sección de cables -->
-                <li><a href="contacto.html">Contacto</a></li> <!-- Enlace a la página de contacto -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="accesorios-laptops.html">Laptops</a></li>
+                <li><a href="accesorios-tablets.html">Tablets</a></li>
+                <li><a href="cables-conectores.html">Cables</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <main> <!-- Contenido principal de la página -->
+    <main>
         
-        <section class="banner-movil">
-        <div class="texto-animado">¡Bienvenidos a TechOffice! Calidad y tecnología al mejor precio 🚀 !!</div>
+        <section class="banner-movil" style="background-color: #f2f2f2; padding: 10px 0;">
+            <marquee behavior="scroll" direction="left" scrollamount="6" style="font-size: 1.2em; color: #333; font-weight: bold;">
+                ¡Bienvenidos a TechOffice! Calidad y tecnología al mejor precio 🚀
+            </marquee>
         </section>
 
-
-        <section class="banner"> <!-- Sección de banner promocional -->
-            <h2>Soluciones Tecnológicas para tu Oficina y Hogar</h2> <!-- Título del banner -->
+        <section class="banner">
+            <h2>Soluciones Tecnológicas para tu Oficina y Hogar</h2>
             <p>Descubre nuestra amplia gama de accesorios que elevan tu productividad y potencian tu equipo 
-                al máximo. ¡Calidad, innovación y estilo en un solo lugar!</p> <!-- Subtítulo del banner -->
+                al máximo. ¡Calidad, innovación y estilo en un solo lugar!</p>
         </section>
 
-        <section class="destacados"> <!-- Sección de productos destacados -->
-            <h2>Productos Destacados</h2> <!-- Título de la sección -->
+        <section class="destacados">
+            <h2>Productos Destacados</h2>
+            <div class="productos-container">
+                <!-- PRODUCTO 1 -->
+                <article class="producto">
+                    <img src="imagenes/Destacados_Main/Mouse_Inalambrico.jpg" alt="Mouse inalambrico"/>
+                    <h3>Mouse Inalámbrico</h3>
+                    <p>S/59.90</p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
 
-           
-         <div class="productos-container slider">
-          <!-- PRODUCTO 1 -->   
-         <article class="producto active">
-         <img src="imagenes/Destacados_Main/Mouse_Inalambrico.jpg" alt="Mouse inalambrico"/>
-         <h3>Mouse Inalámbrico</h3>
-         <p>S/59.90</p>
-         <a href="accesorios-laptops.html">Ver más</a>
-         </article>
-          
-          <!-- PRODUCTO 2 -->
-         <article class="producto">
-         <img src="imagenes/Destacados_Main/Funda_Tablet.jpg" alt="Funda para tablet"/>
-         <h3>Funda para Tablet</h3>
-         <p>S/89.90</p>
-         <a href="accesorios-tablets.html">Ver más</a>
-         </article>
-          
-          <!-- PRODUCTO 3 -->
-         <article class="producto">
-         <img src="imagenes/cables/Cable-HDMI.jpg" alt="Cable HDMI"/>
-         <h3>Cable HDMI</h3>
-         <p>S/39.90</p>
-         <a href="cables-conectores.html">Ver más</a>
-         </article>
-          
-          <!-- PRODUCTO 4 -->
-         <article class="producto">
-         <img src="imagenes/Destacados_Main/Funda-Tablet-02.jpg" alt="Funda Tablet"/>
-         <h3>Funda Tablet</h3>
-         <p>S/85.90</p>
-         <a href="cables-conectores.html">Ver más</a>
-         </article>
-         </div> <!-- Fin del contenedor de productos -->
+                <!-- PRODUCTO 2 -->
+                <article class="producto">
+                    <img src="imagenes/Destacados_Main/Funda_Tablet.jpg" alt="Funda para tablet"/>
+                    <h3>Funda para Tablet</h3>
+                    <p>S/89.90</p>
+                    <a href="accesorios-tablets.html">Ver más</a>
+                </article>
 
-<section class="descuentos">
-    <h2>¡Ofertas Especiales con 20% de Descuento!</h2>
-    <div class="productos-container">
-        <!-- Producto 1 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/TecladoMecanico.jpg" alt="Teclado Mecánico"/>
-            <h3>Teclado Mecánico</h3>
-            <p><del>S/199.90</del> <strong>S/159.92</strong></p>
-            <a href="accesorios-laptops.html">Ver más</a>
-        </article>
+                <!-- PRODUCTO 3 -->
+                <article class="producto">
+                    <img src="imagenes/cables/Cable-HDMI.jpg" alt="Cable HDMI"/>
+                    <h3>Cable HDMI</h3>
+                    <p>S/39.90</p>
+                    <a href="cables-conectores.html">Ver más</a>
+                </article>
 
-        <!-- Producto 2 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/AudífonosBluetooth.jpg" alt="Audífonos Bluetooth"/>   
-            <h3>Audífonos Bluetooth</h3>
-            <p><del>S/149.90</del> <strong>S/119.92</strong></p>
-            <a href="accesorios-laptops.html">Ver más</a>
-        </article>
-
-        <!-- Producto 3 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/BaseLaptop.jpg" alt="Base para Laptop"/>
-            <h3>Base para Laptop</h3>
-            <p><del>S/99.90</del> <strong>S/79.92</strong></p>
-            <a href="accesorios-laptops.html">Ver más</a>
-        </article>
-
-        <!-- Producto 4 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/MouseGamer.jpg" alt="Mouse Gamer"/>
-            <h3>Mouse Gamer</h3>
-            <p><del>S/129.90</del> <strong>S/103.92</strong></p>
-            <a href="accesorios-laptops.html">Ver más</a>
-        </article>
-
-        <!-- Producto 5 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/HubUSB3.0.jpg" alt="Hub USB 3.0"/>
-            <h3>Hub USB 3.0</h3>
-            <p><del>S/69.90</del> <strong>S/55.92</strong></p>
-            <a href="cables-conectores.html">Ver más</a>
-        </article>
-
-        <!-- Producto 6 -->
-        <article class="producto">
-            <img src="Imagenes/Descuentos_Main/PowerBank10,000mAh.jpg" alt="Power Bank"/>
-            <h3>Power Bank 10,000mAh</h3>
-            <p><del>S/89.90</del> <strong>S/71.92</strong></p>
-            <a href="accesorios-laptops.html">Ver más</a>
-        </article>
-    </div>
-</section>
-
-            
+                <!-- PRODUCTO 4 -->
+                <article class="producto">
+                    <img src="imagenes/Destacados_Main/Funda-Tablet-02.jpg" alt="Funda Tablet"/>
+                    <h3>Funda Tablet</h3>
+                    <p>S/85.90</p>
+                    <a href="cables-conectores.html">Ver más</a>
+                </article>
+            </div>
         </section>
-         <section class="descripcion-empresa">
-         <h2>¿Quiénes Somos?</h2>
-         <p>
-        En <strong>TechOffice</strong> nos especializamos en brindar soluciones tecnológicas para tu oficina y hogar.
-        Ofrecemos productos de alta calidad <br> como accesorios para laptops, tablets, cables y mucho más, con atención
-        personalizada y precios competitivos.
-        </p>
-        
-</section>
+
+        <section class="descuentos">
+            <h2>¡Ofertas Especiales con 20% de Descuento!</h2>
+            <div class="productos-container">
+                <!-- Producto 1 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/TecladoMecanico.jpg" alt="Teclado Mecánico"/>
+                    <h3>Teclado Mecánico</h3>
+                    <p><del>S/199.90</del> <strong>S/159.92</strong></p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/AudífonosBluetooth.jpg" alt="Audífonos Bluetooth"/>   
+                    <h3>Audífonos Bluetooth</h3>
+                    <p><del>S/149.90</del> <strong>S/119.92</strong></p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
+
+                <!-- Producto 3 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/BaseLaptop.jpg" alt="Base para Laptop"/>
+                    <h3>Base para Laptop</h3>
+                    <p><del>S/99.90</del> <strong>S/79.92</strong></p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
+
+                <!-- Producto 4 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/MouseGamer.jpg" alt="Mouse Gamer"/>
+                    <h3>Mouse Gamer</h3>
+                    <p><del>S/129.90</del> <strong>S/103.92</strong></p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
+
+                <!-- Producto 5 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/HubUSB3.0.jpg" alt="Hub USB 3.0"/>
+                    <h3>Hub USB 3.0</h3>
+                    <p><del>S/69.90</del> <strong>S/55.92</strong></p>
+                    <a href="cables-conectores.html">Ver más</a>
+                </article>
+
+                <!-- Producto 6 -->
+                <article class="producto">
+                    <img src="Imagenes/Descuentos_Main/PowerBank10,000mAh.jpg" alt="Power Bank"/>
+                    <h3>Power Bank 10,000mAh</h3>
+                    <p><del>S/89.90</del> <strong>S/71.92</strong></p>
+                    <a href="accesorios-laptops.html">Ver más</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="descripcion-empresa">
+            <h2>¿Quiénes Somos?</h2>
+            <p>
+                En <strong>TechOffice</strong> nos especializamos en brindar soluciones tecnológicas para tu oficina y hogar.
+                Ofrecemos productos de alta calidad <br> como accesorios para laptops, tablets, cables y mucho más, con atención
+                personalizada y precios competitivos.
+            </p>
+        </section>
 
     </main>
 
-    <footer> <!-- Pie de página -->
-        
-       
+    <footer>
         <div class="footer-info">
             <p>TechOffice &copy; 2023 - Todos los derechos reservados</p>
             <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
             <p>Teléfono: (054) 123-4567</p>
         </div>
-         
 
-         <div class="redes-sociales">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
-        <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+        <div class="redes-sociales">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
         </div>
-
     </footer> 
-    
-    <!-- script para mostrar los productos -->
-<script>
-    let productos = document.querySelectorAll('.slider .producto');
-    let index = 0;
 
-    function mostrarSiguienteProducto() {
-        productos[index].classList.remove('active');
-        index = (index + 1) % productos.length;
-        productos[index].classList.add('active');
-    }
-
-    setInterval(mostrarSiguienteProducto, 10000); // Cambia cada 4 segundos
-</script>
 </body>
 </html>
+
