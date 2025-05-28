@@ -1085,7 +1085,36 @@ input[type="number"] {
 .multimedia iframe:hover {
     transform: scale(1.02);
 }
+.multimedia video {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
 
+.multimedia video:hover {
+    transform: scale(1.02);
+}
+
+/* Estilo para el botón/enlace "Agregar al Carrito" */
+.boton-agregar {
+    display: block;
+    width: max-content;
+    margin: 10px auto 0;
+    background-color: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer; /* Cambia a pointer para indicar interactividad */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton-agregar:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
 /* Responsive para formulario de pago */
 @media (max-width: 768px) {
     .formulario-pago {
