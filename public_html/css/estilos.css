@@ -1007,3 +1007,85 @@ input[type="number"] {
   text-align: center;
   width: fit-content;
 }
+
+/* Estilos para la página de proceso de pago */
+.formulario-pago {
+    flex: 2 1 600px;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.formulario-pago h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.tabla-resumen {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.tabla-resumen th,
+.tabla-resumen td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabla-resumen th {
+    background-color: #3498db;
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-resumen td {
+    font-size: 0.95rem;
+}
+
+.tabla-resumen tfoot td {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.multimedia {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.multimedia iframe {
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.multimedia iframe:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive para formulario de pago */
+@media (max-width: 768px) {
+    .formulario-pago {
+        padding: 1rem;
+    }
+
+    .tabla-resumen th,
+    .tabla-resumen td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .multimedia iframe {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .multimedia iframe {
+        height: 200px;
+    }
+}

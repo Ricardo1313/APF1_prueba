@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finaliza tu compra en TechOffice con nuestro proceso de pago seguro.">
+    <meta name="keywords" content="TechOffice, checkout, pago, tecnología, accesorios">
+    <meta name="author" content="TechOffice">
+    <title>Proceso de Pago - TechOffice</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <!-- Cargar Font Awesome desde CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+           <img src="logo.jpg" alt="Logo TechOffice" width="150"/> 
+            <h1>TechOffice</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="accesorios-laptops.html">Laptops</a></li>
+                <li><a href="accesorios-tablets.html">Tablets</a></li>
+                <li><a href="cables-conectores.html">Cables</a></li>
+                <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html" title="Ver carrito de compras">
+                  <i class="fas fa-shopping-cart"></i> Carrito
+                </a></li>
+              </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h2>Proceso de Pago</h2>
+            <p>Completa tus datos para finalizar tu compra de manera segura.</p>
+        </section>
+
+        <div class="carrito-container">
+            <!-- Resumen del Pedido -->
+            <aside class="resumen-carrito">
+                <h3>Resumen del Pedido</h3>
+                <table class="tabla-resumen">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Adaptador VGA a HDMI</td>
+                            <td>1</td>
+                            <td>S/49.90</td>
+                        </tr>
+                        <tr>
+                            <td>Cargador Universal para Laptop</td>
+                            <td>1</td>
+                            <td>S/119.90</td>
+                        </tr>
+                        <tr>
+                            <td>Funda Protectora para Tablet</td>
+                            <td>1</td>
+                            <td>S/89.90</td>
+                        </tr>
+                        <tr>
+                            <td>Teclado Bluetooth para Tablet</td>
+                            <td>1</td>
+                            <td>S/99.90</td>
+                        </tr>
+                        <tr>
+                            <td>Lámpara LED con Soporte para Tablet</td>
+                            <td>1</td>
+                            <td>S/45.90</td>
+                        </tr>
+                        <tr>
+                            <td>Cable de Red CAT6</td>
+                            <td>1</td>
+                            <td>S/28.90</td>
+                        </tr>
+                        <tr>
+                            <td>Cable USB-C a USB-A 3.2</td>
+                            <td>1</td>
+                            <td>S/32.90</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td>S/467.30</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </aside>
+
+            <!-- Formulario de Pago -->
+            <section class="formulario-pago">
+                <h2>Detalles de Pago y Envío</h2>
+                <form class="formulario-contacto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección de Envío</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección completa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodo-pago">Método de Pago</label>
+                        <select id="metodo-pago" name="metodo-pago" required>
+                            <option value="">Seleccione un método</option>
+                            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="transferencia">Transferencia Bancaria</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarjeta">Número de Tarjeta (si aplica)</label>
+                        <input type="text" id="tarjeta" name="tarjeta" placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="form-group">
+                        <label for="comentarios">Comentarios Adicionales</label>
+                        <textarea id="comentarios" name="comentarios" placeholder="Notas sobre el pedido"></textarea>
+                    </div>
+                    <button type="submit">Confirmar Pago</button>
+                </form>
+            </section>
+        </div>
+
+        <!-- Multimedia: Video promocional -->
+        <section class="multimedia">
+            <h2>¿Por qué comprar con nosotros?</h2>
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/YB4-_EMXSkE?si=Hkr_1H8nI2TjnF3p" frameborder="0" allowfullscreen></iframe>
+        </section>
+    </main>
+    
+
+    <footer>
+        <div class="footer-info">
+            <p>TechOffice &copy; 2023 - Todos los derechos reservados</p>
+            <p>Av. Tacna y Arica 160, Arequipa - Perú</p>
+            <p>Teléfono: (054) 123-4567</p>
+        </div>
+
+        <div class="redes-sociales">
+            <a href="https://web.facebook.com/techoffice.ec/?_rdc=1&_rdr#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+            <a href="https://www.instagram.com/tech.office_/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+        </div>
+    </footer> 
+</body>
+</html>
