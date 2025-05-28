@@ -762,3 +762,10 @@ input[type="number"] {
   cursor: default; /* Cambia a pointer si quieres que sea clickeable */
 }
 
+.carrito-header a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
