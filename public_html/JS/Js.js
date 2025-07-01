@@ -1,7 +1,3 @@
-//===========
-//   Index
-//===========
-
 document.addEventListener("DOMContentLoaded", () => {
   // Carrusel
   const carrusel = document.querySelector('.productos-wrapper');

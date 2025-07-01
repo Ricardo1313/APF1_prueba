@@ -19,21 +19,20 @@
             <img src="logo.jpg" alt="Logo TechOffice" width="150">
             <h1>TechOffice</h1>
         </div>
-       <nav>
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="accesorios-laptops.html">Laptops</a></li>
-    <li><a href="accesorios-tablets.html">Tablets</a></li>
-    <li><a href="cables-conectores.html">Cables</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-    <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-    <li><a href="carrito.html" title="Ver carrito de compras">
-        <i class="fas fa-shopping-cart"></i> Carrito
-      </a>
-    </li>
-  </ul>
-</nav>
-
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="accesorios-laptops.html">Laptops</a></li>
+                <li><a href="accesorios-tablets.html">Tablets</a></li>
+                <li><a href="cables-conectores.html">Cables</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+                <li><a href="carrito.html" title="Ver carrito de compras">
+                    <i class="fas fa-shopping-cart"></i> Carrito
+                  </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -50,7 +49,13 @@
                     <li>Longitud: 2 metros</li>
                     <li>Ancho de banda: 48Gbps</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="cable-hdmi"
+                   data-nombre="Cable HDMI Ultra HD 2.1"
+                   data-precio="45.90"
+                   data-imagen="imagenes/cables/Cable-HDMI.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 2 -->
@@ -63,7 +68,13 @@
                     <li>Longitud: 1.5 metros</li>
                     <li>Corriente: 3A</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="cable-usb"
+                   data-nombre="Cable USB-C a USB-A 3.2"
+                   data-precio="32.90"
+                   data-imagen="imagenes/cables/usb-cable.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 3 -->
@@ -76,7 +87,13 @@
                     <li>Resolución: 1920x1080</li>
                     <li>Incluye audio</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="adaptador-hdmi-vga"
+                   data-nombre="Adaptador HDMI a VGA"
+                   data-precio="65.90"
+                   data-imagen="imagenes/cables/adaptador-hdmi-vga.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 4 -->
@@ -89,7 +106,13 @@
                     <li>Longitud: 3 metros</li>
                     <li>Velocidad: 1Gbps</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="cable-red"
+                   data-nombre="Cable de Red CAT6"
+                   data-precio="28.90"
+                   data-imagen="imagenes/cables/cable-red.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 5 -->
@@ -102,7 +125,13 @@
                     <li>Potencia: 65W</li>
                     <li>Plegable</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="cargador-portatil"
+                   data-nombre="Cargador Portátil 65W"
+                   data-precio="129.90"
+                   data-imagen="imagenes/cables/cargador-portatil.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 6 -->
@@ -115,7 +144,13 @@
                     <li>Puertos: HDMI, VGA, Ethernet</li>
                     <li>Salida dual monitor</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="docking-station"
+                   data-nombre="Docking Station USB-C"
+                   data-precio="249.90"
+                   data-imagen="imagenes/cables/docking-station.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Producto 7 -->
@@ -128,7 +163,13 @@
                     <li>Longitud: 1.8 metros</li>
                     <li>Oro 24k en contactos</li>
                 </ul>
-                <a href="carrito.html" class="boton-agregar">Agregar al Carrito</a>
+                <button class="boton-agregar"
+                   data-id="cable-audio"
+                   data-nombre="Cable Audio 3.5mm Oro"
+                   data-precio="39.90"
+                   data-imagen="imagenes/cables/cable-audio.jpg">
+                   Agregar al Carrito
+                </button>
             </div>
 
             <!-- Espacio vacío para completar la grilla 2x4 -->
@@ -149,5 +190,7 @@
             <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
         </div>
     </footer> 
+
+    <script src="js/carrito.js"></script>
 </body>
 </html>
