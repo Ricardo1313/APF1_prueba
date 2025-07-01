@@ -101,7 +101,7 @@ footer {
 
 /* Estilos específicos */
 .banner {
-    background-color: #3498db;
+    background-color: rgb(44, 62, 80);
     color: white;
     padding: 2rem;
     text-align: center;
@@ -967,6 +967,7 @@ input[type="number"] {
   75%  { background-color: #d0ebfa; }
   100% { background-color: #e3f2fd; }
 }
+
 .anim-fotograma {
   animation: fotograma 5s steps(4) infinite;
   color: white;
@@ -1346,6 +1347,87 @@ input[type="number"] {
 .cerrar:hover {
     color: #00bfff;
 }
+
+/* Estilos para preguntas frecuentes */
+.preguntas {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pregunta {
+    margin-bottom: 1.5rem;
+}
+
+.acordeon {
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.acordeon:hover {
+    background-color: black;
+}
+
+.acordeon i {
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.acordeon:hover i {
+    transform: rotate(90deg);
+}
+
+.respuesta {
+    display: none;
+    padding: 1rem;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+/* Estilos para la encuesta */
+.cuestionario {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.cuestionario button {
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.cuestionario button:hover {
+    background-color: #2980b9;
+}
+
+footer .redes-sociales a {
+    color: white;
+    margin: 0 10px;
+}
+
+footer .redes-sociales a:hover {
+    color: #3498db;
+}
+
 
 /* Responsive */
 

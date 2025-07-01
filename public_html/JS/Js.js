@@ -1,6 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Carrusel
   const carrusel = document.querySelector('.productos-wrapper');
+  // Acordeón para Preguntas Frecuentes
+  const acordeons = document.querySelectorAll(".acordeon");
+
+  acordeons.forEach(acordeon => {
+    acordeon.addEventListener("click", function () {
+      const respuesta = this.nextElementSibling;
+
+      // Alternar la visibilidad de la respuesta
+      if (respuesta.style.display === "block") {
+        respuesta.style.display = "none";
+      } else {
+        respuesta.style.display = "block";
+      }
+    });
+  });
+
+  // Función para mostrar mensaje de satisfacción
+  function obtenerSatisfaccion() {
+    let respuesta = prompt("¿Te ha servido la sección de preguntas frecuentes? (Si/No)");
+
+    if (respuesta.toLowerCase() === "si") {
+      alert("¡Gracias por tu comentario!");
+    } else if (respuesta.toLowerCase() === "no") {
+      alert("Lamentamos no haberte podido ayudar, estamos trabajando para mejorar.");
+    } else {
+      alert("Respuesta no válida, por favor ingresa 'Si' o 'No'.");
+    }
+  }
+
+  // Asignar función a la encuesta de satisfacción
+  const encuestaBtn = document.getElementById("encuestaBtn"); // Seleccionamos el botón por ID
+  if (encuestaBtn) {
+    encuestaBtn.addEventListener("click", obtenerSatisfaccion); // Asignamos el evento
+  }
+
 
   if (carrusel) {
     // Duplicar contenido para efecto infinito
@@ -226,5 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+    
+
 
 });
