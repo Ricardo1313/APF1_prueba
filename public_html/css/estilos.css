@@ -302,7 +302,8 @@ button[type="submit"]:hover {
 .redes-sociales img:hover {
     transform: scale(1.1);
 }
-.trans-longitud {
+
+.trans-longitudes {
     background-color: #0077cc;
     color: white;
     cursor: pointer;
@@ -316,26 +317,8 @@ button[type="submit"]:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.trans-longitud:hover {
-    transform: scale(1.1); 
-} 
-
-.trans-longitudes {
-    background-color: #0077cc;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.5s ease;
-    padding: 30px 20px;
-    margin: 40px auto;
-    width: 90%;
-    max-width: 2000px;
-    text-align: justify;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
 .trans-longitudes:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1); /* Crece un 10% */
 }
 
 .redes-sociales a {
@@ -1459,80 +1442,370 @@ footer .redes-sociales a:hover {
         padding: 2rem 1.5rem;
     }
 }
-.trans-longitudes .punto {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin: 3rem 0;
-  flex-wrap: nowrap; /* evita que se quiebren */
+
+/* ============================================= */
+/* ESTILOS PARA PROCESO DE PAGO */
+/* ============================================= */
+
+/* Contenedor principal */
+.proceso-pago-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-/* Columnas */
-.trans-longitudes .punto .texto,
-.trans-longitudes .punto .imagen {
-  flex: 1 1 0;
-  min-width: 0; /* ayuda con overflow */
+/* Sección de resumen */
+.resumen-pago {
+    flex: 1;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Imagen tamaño fijo */
-.trans-longitudes .punto .imagen img {
-  width: 300px;
-  height: 200px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* Tabla de resumen */
+.tabla-resumen {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
 }
 
-/* Márgenes para separar imagen del texto según posición */
-.trans-longitudes:nth-of-type(odd) .punto .imagen {
-  margin-left: 30px;
+.tabla-resumen th, 
+.tabla-resumen td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
-.trans-longitudes:nth-of-type(even) .punto .imagen {
-  margin-right: 30px;
+.tabla-resumen th {
+    background-color: #2c3e50;
+    color: white;
 }
 
-/* Invertir columnas en pares */
-.trans-longitudes:nth-of-type(even) .punto {
-  flex-direction: row-reverse;
+.tabla-resumen tfoot td {
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
-/* Responsive: en móvil apilar */
-@media (max-width: 768px) {
-  .trans-longitudes .punto {
-    flex-direction: column !important;
+/* Formulario de pago */
+.formulario-pago {
+    flex: 2;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Sección de cupón */
+.cupon-descuento {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.cupon-input-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+}
+
+.cupon-input-container input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.cupon-input-container button {
+    padding: 0 1.25rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cupon-input-container button:hover {
+    background: #2980b9;
+}
+
+.mensaje-cupon {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.mensaje-cupon.exito {
+    color: #27ae60;
+}
+
+.mensaje-cupon.error {
+    color: #e74c3c;
+}
+
+/* Sección de datos de tarjeta (oculta por defecto) */
+.datos-tarjeta {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+/* ============================================= */
+/* ESTILOS PARA SEGUIMIENTO DE PEDIDOS */
+/* ============================================= */
+
+.contenedor-pedidos {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.lista-pedidos {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.pedido-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.pedido-card:hover {
+    transform: translateY(-5px);
+}
+
+.pedido-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+}
+
+.pedido-header h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.fecha-pedido {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.boton-estado {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border: none;
+    color: white;
+}
+
+.estado-pendiente {
+    background-color: #f39c12;
+}
+
+.estado-enviado {
+    background-color: #3498db;
+}
+
+.estado-completado {
+    background-color: #2ecc71;
+}
+
+.estado-cancelado {
+    background-color: #e74c3c;
+}
+
+.pedido-detalle {
+    padding: 1.5rem;
+}
+
+.lista-productos {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.lista-productos li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.producto-nombre {
+    flex: 2;
+}
+
+.producto-cantidad {
+    flex: 1;
     text-align: center;
-  }
-  
-  .trans-longitudes .punto .texto,
-  .trans-longitudes .punto .imagen {
-    width: 100%;
-    margin: 0; /* elimina margenes laterales en móvil */
-  }
-  
-  .trans-longitudes .punto .imagen img {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-    margin: 0 auto;
-  }
+    color: #7f8c8d;
 }
 
-
-.contenido {
-  max-width: 1100px;
-  margin: 40px auto 20px auto; /* margen arriba y abajo centrado */
-  padding: 0 20px;
-  text-align: center;
+.producto-subtotal {
+    flex: 1;
+    text-align: right;
+    font-weight: bold;
 }
 
-.contenido h1 {
-  font-size: 2.8rem;
-  color: #0077cc; /* azul TechOffice para que destaque */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.cupon-aplicado {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #e8f4fc;
+    border-radius: 5px;
+    margin: 1rem 0;
+    color: #3498db;
+}
+
+.pedido-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 2px solid #2c3e50;
+    font-size: 1.1rem;
+}
+
+.pedido-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.boton-primario, .boton-secundario {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.boton-primario {
+    background-color: #3498db;
+    color: white;
+    border: none;
+}
+
+.boton-primario:hover {
+    background-color: #2980b9;
+}
+
+.boton-secundario {
+    background-color: white;
+    color: #3498db;
+    border: 1px solid #3498db;
+}
+
+.boton-secundario:hover {
+    background-color: #f0f7fc;
+}
+
+.pedido-vacio {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.pedido-vacio i {
+    color: #bdc3c7;
+    margin-bottom: 1rem;
+}
+
+.pedido-vacio h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.pedido-vacio p {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.boton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .pedido-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .pedido-acciones {
+        flex-direction: column;
+    }
+    
+    .lista-productos li {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .producto-cantidad, .producto-subtotal {
+        text-align: left;
+    }
+}
+/* Estilos para el modal de seguimiento */
+.modal-seguimiento {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-seguimiento > div {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+}
+
+#cerrar-modal {
+    padding: 8px 16px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#cerrar-modal:hover {
+    background: #c0392b;
 }

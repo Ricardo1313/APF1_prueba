@@ -336,3 +336,105 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+////RICARDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+// Función para manejar el botón "Proceder al pago"
+function configurarBotonPago() {
+  const btnProcederPago = document.getElementById('proceder-pago');
+  if (btnProcederPago) {
+    btnProcederPago.addEventListener('click', function(e) {
+      e.preventDefault();
+      const carrito = obtenerCarrito();
+      if (carrito.length === 0) {
+        mostrarModal('El carrito está vacío. Agrega productos antes de proceder al pago.');
+        return;
+      }
+      // Guardar el carrito actual en localStorage
+      guardarCarrito(carrito);
+      // Redirigir a la página de proceso de pago
+      window.location.href = 'proceso-pago.html';
+    });
+  }
+}
+
+// Llamar a esta función en inicializarCarrito()
+function inicializarCarrito() {
+  // ... código existente ...
+  configurarBotonPago();
+}
+
+// Función para buscar pedidos (usar en seguimiento-pedidos.html)
+function buscarPedido(idPedido) {
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    
+    if (!idPedido) {
+        // Buscar en URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        idPedido = urlParams.get('pedido');
+    }
+
+    if (idPedido) {
+        const pedido = pedidos.find(p => p.id === idPedido);
+        mostrarResultadoPedido(pedido);
+        return pedido;
+    }
+    return null;
+}
+
+// Mostrar resultado en la página
+function mostrarResultadoPedido(pedido) {
+    const resultadoDiv = document.getElementById('resultado-pedido');
+    
+    if (!pedido) {
+        resultadoDiv.innerHTML = `
+            <div class="pedido-no-encontrado">
+                <i class="fas fa-times-circle fa-3x"></i>
+                <h3>Pedido no encontrado</h3>
+                <p>Verifica el número e intenta nuevamente</p>
+            </div>
+        `;
+        return;
+    }
+
+    resultadoDiv.innerHTML = `
+        <div class="pedido-encontrado">
+            <h3>Pedido #${pedido.id}</h3>
+            <p class="fecha"><strong>Fecha:</strong> ${new Date(pedido.fecha).toLocaleDateString()}</p>
+            <p class="estado"><strong>Estado:</strong> <span class="${pedido.estado}">${pedido.estado.toUpperCase()}</span></p>
+            
+            <div class="productos-pedido">
+                <h4>Productos:</h4>
+                ${pedido.productos.map(producto => `
+                    <div class="producto">
+                        <p>${producto.nombre} - Cantidad: ${producto.cantidad}</p>
+                        <p class="precio">S/${(producto.precio * producto.cantidad).toFixed(2)}</p>
+                    </div>
+                `).join('')}
+            </div>
+            
+            ${pedido.cupon ? `
+                <div class="cupon-aplicado">
+                    <p><strong>Cupón aplicado:</strong> ${pedido.cupon.codigo} (${pedido.cupon.descuento}% de descuento)</p>
+                </div>
+            ` : ''}
+            
+            <div class="total-pedido">
+                <p><strong>Total:</strong> <span>S/${pedido.total.toFixed(2)}</span></p>
+            </div>
+        </div>
+    `;
+}
+
+// Inicializar búsqueda al cargar la página
+if (document.getElementById('resultado-pedido')) {
+    document.getElementById('buscar-pedido').addEventListener('click', () => {
+        const numeroPedido = document.getElementById('numero-pedido').value.trim();
+        buscarPedido(numeroPedido);
+    });
+
+    // Buscar automáticamente si hay parámetro en URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('pedido')) {
+        buscarPedido();
+    }
+}

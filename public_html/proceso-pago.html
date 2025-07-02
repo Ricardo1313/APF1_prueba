@@ -8,13 +8,12 @@
     <meta name="author" content="TechOffice">
     <title>Proceso de Pago - TechOffice</title>
     <link rel="stylesheet" href="css/estilos.css">
-    <!-- Cargar Font Awesome desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-           <img src="logo.jpg" alt="Logo TechOffice" width="150"/> 
+            <img src="logo.jpg" alt="Logo TechOffice" width="150"/> 
             <h1>TechOffice</h1>
         </div>
         <nav>
@@ -27,10 +26,10 @@
                 <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"></i>    <span class="contador-carrito" style="display: none;"></span>
-        Carrito
-    </a></li>
-              </ul>
+                    <i class="fas fa-shopping-cart"></i> <span class="contador-carrito" style="display: none;"></span>
+                    Carrito
+                </a></li>
+            </ul>
         </nav>
     </header>
 
@@ -53,55 +52,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Adaptador VGA a HDMI</td>
-                            <td>1</td>
-                            <td>S/49.90</td>
-                        </tr>
-                        <tr>
-                            <td>Cargador Universal para Laptop</td>
-                            <td>1</td>
-                            <td>S/119.90</td>
-                        </tr>
-                        <tr>
-                            <td>Funda Protectora para Tablet</td>
-                            <td>1</td>
-                            <td>S/89.90</td>
-                        </tr>
-                        <tr>
-                            <td>Teclado Bluetooth para Tablet</td>
-                            <td>1</td>
-                            <td>S/99.90</td>
-                        </tr>
-                        <tr>
-                            <td>Lámpara LED con Soporte para Tablet</td>
-                            <td>1</td>
-                            <td>S/45.90</td>
-                        </tr>
-                        <tr>
-                            <td>Cable de Red CAT6</td>
-                            <td>1</td>
-                            <td>S/28.90</td>
-                        </tr>
-                        <tr>
-                            <td>Cable USB-C a USB-A 3.2</td>
-                            <td>1</td>
-                            <td>S/32.90</td>
-                        </tr>
+                        <!-- Los productos del carrito se cargarán aquí dinámicamente -->
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="2">Total</td>
-                            <td>S/467.30</td>
+                            <td>S/0.00</td>
                         </tr>
                     </tfoot>
                 </table>
+
+                <!-- Sección de Cupón de Descuento -->
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="cupon">Cupón de descuento:</label>
+                    <div style="display:flex; gap:10px; margin-top: 8px;">
+                        <input type="text" id="cupon" name="cupon" placeholder="Ingresa tu cupón" class="input-cupon">
+                        <button type="button" id="aplicar-cupon" class="boton-cupon">Aplicar</button>
+                    </div>
+                    <p id="mensaje-cupon" style="margin-top:8px;"></p>
+                </div>
             </aside>
 
             <!-- Formulario de Pago -->
             <section class="formulario-pago">
                 <h2>Detalles de Pago y Envío</h2>
-                <form class="formulario-contacto">
+                <form class="formulario-contacto" id="formulario-pago">
                     <div class="form-group">
                         <label for="nombre">Nombre Completo</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required>
@@ -123,15 +98,26 @@
                             <option value="transferencia">Transferencia Bancaria</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="tarjeta">Número de Tarjeta (si aplica)</label>
+                    <div class="form-group" id="datos-tarjeta" style="display:none;">
+                        <label for="tarjeta">Número de Tarjeta</label>
                         <input type="text" id="tarjeta" name="tarjeta" placeholder="1234 5678 9012 3456">
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                            <div>
+                                <label for="vencimiento">Vencimiento (MM/AA)</label>
+                                <input type="text" id="vencimiento" name="vencimiento" placeholder="MM/AA">
+                            </div>
+                            <div>
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="123">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="comentarios">Comentarios Adicionales</label>
                         <textarea id="comentarios" name="comentarios" placeholder="Notas sobre el pedido"></textarea>
                     </div>
-                    <button type="submit">Confirmar Pago</button>
+                    <button type="submit" id="confirmar-pago">Confirmar Pago</button>
                 </form>
             </section>
         </div>
@@ -145,7 +131,6 @@
             </video>
         </section>
     </main>
-    
 
     <footer>
         <div class="footer-info">
@@ -159,6 +144,18 @@
             <a href="https://www.instagram.com/tech.office_/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
             <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
         </div>
-    </footer> 
+    </footer>
+
+    <!-- Modal de mensajes -->
+    <div id="modalMensaje" class="modal" style="display:none;">
+        <div class="modal-contenido">
+            <span id="cerrarModal" class="cerrar">&times;</span>
+            <p id="textoModal"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="JS/carrito.js"></script>
+    <script src="JS/proceso-pago.js"></script>
 </body>
 </html>
