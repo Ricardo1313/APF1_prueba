@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quienes somos (sin cambios)
+  // Quienes somos 
   const quienesSomos = document.querySelector('.trans-longitudes:last-of-type');
   if (quienesSomos) {
     quienesSomos.style.cursor = 'pointer';
@@ -261,8 +261,78 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-  
-    
 
+});
+
+  //======================
+  //  Quienes somos'
+  //======================
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+  const navList = document.querySelector("nav ul");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = navList.querySelectorAll("a");
+
+
+  // Función para configurar el ARIA y accesibilidad del menú
+  function setupAccessibility() {
+    menuToggle.setAttribute("aria-controls", navList.id || "nav-list");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menú principal");
+    navList.setAttribute("role", "menu");
+    navLinks.forEach(link => {
+      link.setAttribute("role", "menuitem");
+      link.tabIndex = -1;
+    });
+  }
+
+  // Inicializa estilos y accesibilidad
+  setupAccessibility();
+
+  // Función para manejar el toggle del menú en mobile
+  function toggleMenu() {
+    const isOpen = navList.classList.toggle("show");
+    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+    // Controla tabIndex para accesibilidad
+    navLinks.forEach(link => {
+      link.tabIndex = isOpen ? 0 : -1;
+    });
+  }
+
+  // Evento click hamburguesa
+  menuToggle.addEventListener("click", toggleMenu);
+
+  // Función que ajusta tabIndex y menú al redimensionar pantalla
+  function onResize() {
+    if (window.innerWidth > 768) {
+      navList.classList.remove("show");
+      menuToggle.setAttribute("aria-expanded", "false");
+      navLinks.forEach(link => link.tabIndex = 0);
+    } else {
+      // En móvil, si el menú no está abierto, links no tabulan
+      if (!navList.classList.contains("show")) {
+        navLinks.forEach(link => link.tabIndex = -1);
+      }
+    }
+  }
+
+  // Llama al cargar y en resize
+  onResize();
+  window.addEventListener("resize", onResize);
+
+  // Cierra menú si se hace click fuera (opcional)
+  document.addEventListener("click", e => {
+    if (
+      window.innerWidth <= 768 &&
+      navList.classList.contains("show") &&
+      !navList.contains(e.target) &&
+      e.target !== menuToggle
+    ) {
+      toggleMenu();
+    }
+  });
 
 });
