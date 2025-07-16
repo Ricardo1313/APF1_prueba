@@ -1912,6 +1912,63 @@ footer .redes-sociales a:hover {
   text-align: justify;
 }
 
+/* Estilos para el buscador */
+.buscador-container {
+  display: flex;
+  margin: 20px auto;
+  max-width: 600px;
+  gap: 10px;
+  padding: 0 15px;
+}
+
+#buscador-productos {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+#buscador-productos:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+#btn-buscar, #btn-limpiar {
+  padding: 0 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#btn-buscar:hover, #btn-limpiar:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+#btn-buscar i, #btn-limpiar i {
+  font-size: 16px;
+}
+
+/* Mensaje sin resultados */
+.sin-resultados {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #666;
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+
 @media (max-width: 768px) {
   .qs-punto {
     flex-direction: column;

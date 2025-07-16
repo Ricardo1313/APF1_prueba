@@ -48,7 +48,15 @@
 
     <main>
         <h2>Cables y Conectores</h2>
-        
+        <div class="buscador-container">
+            <input type="text" id="buscador-productos" placeholder="Buscar por nombre..." aria-label="Buscar productos por nombre">
+            <button id="btn-buscar" aria-label="Buscar">
+              <i class="fas fa-search"></i>
+            </button>
+            <button id="btn-limpiar" aria-label="Limpiar búsqueda" style="display:none;">
+              <i class="fas fa-times"></i> Limpiar
+            </button>
+        </div>        
         <div class="grilla-productos">
             <!-- Producto 1 -->
             <div class="producto-grilla">
@@ -203,6 +211,7 @@
     </footer> 
     <script src="JS/Js.js" ></script>
     <script src="js/carrito.js"></script>
-    
+    <script src="JS/buscar.js"></script>
+
 </body>
 </html>
