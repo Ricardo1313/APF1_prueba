@@ -24,31 +24,41 @@
             <h1>TechOffice</h1>
         </div>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="accesorios-laptops.html">Laptops</a></li>
-                <li><a href="accesorios-tablets.html">Tablets</a></li>
-                <li><a href="cables-conectores.html">Cables</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-                 <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"></i>    <span class="contador-carrito" style="display: none;"></span>
-        Carrito
+        <nav class="main-nav" aria-label="Menú principal">
+  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+    &#9776;
+  </button>
+
+  <ul id="nav-list" class="nav-list">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="accesorios-laptops.html">Laptops</a></li>
+    <li><a href="accesorios-tablets.html">Tablets</a></li>
+    <li><a href="cables-conectores.html">Cables</a></li>
+    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+    <li><a href="carrito.html" title="Ver carrito de compras">
+      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
     </a></li>
-  
-            </ul>
-        </nav>
+
+    <!-- Contenedor dinámico del usuario -->
+    <li id="nav-usuario" class="nav-usuario" style="display: none;">
+      <i class="fas fa-user-circle"></i>
+      <span id="nombre-usuario"></span>
+      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+    </li>
+  </ul>
+</nav>
+
   </header>
     
     <main class="login-grid">
        <div class="login-imagen">
-            <img src="Imagenes/Inicio_Sesion/Cuadro_1.jpg" alt="Imagen 1" />
-            <img src="Imagenes/Inicio_Sesion/Cuadro_2.jpg" alt="Imagen 2" />
-            <img src="Imagenes/Inicio_Sesion/Cuadro_3.jpg" alt="Imagen 3" />
-            <img src="Imagenes/Inicio_Sesion/Cuadro_4.jpg" alt="Imagen 4" />
-            <img src="Imagenes/Inicio_Sesion/Cuadro_5.jpg" alt="Imagen 5" />
+            <img src="imagenes/Inicio_Sesion/Cuadro_1.jpg" alt="Imagen 1" />
+            <img src="imagenes/Inicio_Sesion/Cuadro_2.jpg" alt="Imagen 2" />
+            <img src="imagenes/Inicio_Sesion/Cuadro_3.jpg" alt="Imagen 3" />
+            <img src="imagenes/Inicio_Sesion/Cuadro_4.jpg" alt="Imagen 4" />
+            <img src="imagenes/Inicio_Sesion/Cuadro_5.jpg" alt="Imagen 5" />
             <img src="imagenes/Inicio_Sesion/Cuadro_6.jpg" alt="Imagen 6"/>
         </div>
 
@@ -111,7 +121,7 @@
     
     
     <script src="JS/Js.js"></script>
-    <script src="JS/carrito.js" type="text/javascript"></script>
+    <script src="JS/carrito.js"></script>
 </body>
 
 </html>

@@ -22,6 +22,52 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Contenedor del usuario en el nav */
+.nav-usuario {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.nav-usuario i {
+  font-size: 1.4rem; /* Más grande */
+  color: white;       /* Color oscuro para texto en fondo claro */
+}
+
+#nombre-usuario {
+  font-weight: 500;
+  color: white;
+  font-size: 1.3rem; /* Más grande */
+}
+
+#btn-logout {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.2rem;
+  padding: 0.4rem 0.8rem; /* Un poco más de padding */
+  background: #f44336;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1rem;      /* Más grande para mejor legibilidad */
+  cursor: pointer;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+#btn-logout:hover {
+  background: #d32f2f;
+}
+
+/* Mostrar botón al pasar el mouse por el contenedor */
+.nav-usuario:hover #btn-logout {
+  display: block;
+}
+
+
 .video-container {
     display: flex;
     justify-content: center;
@@ -1809,3 +1855,114 @@ footer .redes-sociales a:hover {
 #cerrar-modal:hover {
     background: #c0392b;
 }
+
+
+.qs-trans-longitudes {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  width: 90%;
+  max-width: 2000px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.qs-punto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 0;
+  flex-wrap: wrap; 
+}
+
+.qs-punto .qs-texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+.qs-punto .qs-imagen {
+  flex: 1;
+  min-width: 300px;
+}
+
+.qs-punto .qs-imagen img {
+  width: 100%;
+  max-width: 400px; 
+  height: 250px;     
+  object-fit: cover; 
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Alternar izquierda/derecha */
+.qs-punto:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+
+.qs-texto.qs-justificado {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .qs-punto {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .qs-punto .qs-texto, 
+  .qs-punto .qs-imagen {
+    min-width: 100%;
+  }
+}
+.form-login {
+ 
+}
+
+/* Estilos generales - escritorio */
+#menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+/* En pantallas pequeñas - móvil */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  #nav-list {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    z-index: 1000;
+  }
+
+  #nav-list.show {
+    display: flex;
+  }
+}
+

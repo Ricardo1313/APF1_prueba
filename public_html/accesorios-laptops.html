@@ -18,22 +18,32 @@
       <img src="logo.jpg" alt="Logo TechOffice" width="150" />
       <h1>TechOffice</h1>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="accesorios-laptops.html">Laptops</a></li>
-        <li><a href="accesorios-tablets.html">Tablets</a></li>
-        <li><a href="cables-conectores.html">Cables</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
-        <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
-         <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"></i>    <span class="contador-carrito" style="display: none;"></span>
-        Carrito
+     <nav class="main-nav" aria-label="Menú principal">
+  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+    &#9776;
+  </button>
+
+  <ul id="nav-list" class="nav-list">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="accesorios-laptops.html">Laptops</a></li>
+    <li><a href="accesorios-tablets.html">Tablets</a></li>
+    <li><a href="cables-conectores.html">Cables</a></li>
+    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+    <li><a href="carrito.html" title="Ver carrito de compras">
+      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
     </a></li>
-  
-      </ul>
-    </nav>
+
+    <!-- Contenedor dinámico del usuario -->
+    <li id="nav-usuario" class="nav-usuario" style="display: none;">
+      <i class="fas fa-user-circle"></i>
+      <span id="nombre-usuario"></span>
+      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+    </li>
+  </ul>
+</nav>
+
   </header>
 
   <main>
@@ -274,7 +284,7 @@
       <a href="https://wa.me/51973954089" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
     </div>
   </footer>
-
+    <script src="JS/Js.js"></script>
   <script src="Js/carrito.js"></script>
   
 </body>

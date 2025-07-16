@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechOffice - Quiénes Somos</title>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="imagenes/Icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/Icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="imagenes/Icon/favicon-16x16.png">
+  <link rel="manifest" href="imagenes/Icon/site.webmanifest">
+    
   <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -17,31 +23,42 @@
         <img src="logo.jpg" alt="Logo TechOffice" width="150">
         <h1>TechOffice</h1> 
         </div>
-    <nav>
-        <ul>
+       <nav class="main-nav" aria-label="Menú principal">
+  <button id="menu-toggle" aria-label="Abrir menú principal" aria-expanded="false" aria-controls="nav-list">
+    &#9776;
+  </button>
+
+  <ul id="nav-list" class="nav-list">
     <li><a href="index.html">Inicio</a></li>
     <li><a href="accesorios-laptops.html">Laptops</a></li>
     <li><a href="accesorios-tablets.html">Tablets</a></li>
     <li><a href="cables-conectores.html">Cables</a></li>
-    <li><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
+    <li id="nav-login"><a href="Inicio-Sesion.html">Iniciar Sesión</a></li>
     <li><a href="contacto.html">Contacto</a></li>
     <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
     <li><a href="carrito.html" title="Ver carrito de compras">
-      <i class="fas fa-shopping-cart"></i>    <span class="contador-carrito" style="display: none;"></span>
-        Carrito
+      <i class="fas fa-shopping-cart"><span class="contador-carrito" style="display: none;"></span></i> Carrito
     </a></li>
+
+    <!-- Contenedor dinámico del usuario -->
+    <li id="nav-usuario" class="nav-usuario" style="display: none;">
+      <i class="fas fa-user-circle"></i>
+      <span id="nombre-usuario"></span>
+      <button id="btn-logout" title="Cerrar sesión" aria-label="Cerrar sesión" style="display: none;">Salir</button>
+    </li>
   </ul>
-    </nav>
+</nav>
     
 </header>
 
 <main id="quienes-somos">
 
-    <div class="contenido">
+   <section class="qs-trans-longitudes">
+      <div class="qs-punto">
       <h1>
           ¿Quiénes Somos?</h1>
     </div>
-
+   </section>
     <section class="trans-longitudes"> 
         <div>
           <p>
@@ -61,12 +78,12 @@
           </p>
           </div>
   </section>
-    <section class="trans-longitudes">
-      <div class="punto">
-        <div class="imagen">
+    <section class="qs-trans-longitudes">
+      <div class="qs-punto">
+        <div class="qs-imagen">
             <img src="imagenes/Inicio_Sesion/Cuadro_2.jpg" alt=""/>
         </div>
-        <div class="texto">
+        <div class="qs-texto">
           <h2>Misión</h2>
           <p>
             Brindar soluciones tecnológicas y de equipamiento de oficina de 
@@ -77,9 +94,9 @@
         </div>
       </div>
  </section>
-    <section class="trans-longitudes">
-      <div class="punto">
-        <div class="texto">
+    <section class="qs-trans-longitudes">
+      <div class="qs-punto">
+        <div class="qs-texto">
           <h2>Visión</h2>
           <p>
             Ser la empresa líder en soluciones de tecnología y equipamiento de oficina
@@ -87,17 +104,18 @@
             compromiso con el cliente y aporte al desarrollo empresarial de Arequipa y del país.
           </p>
         </div>
-        <div class="imagen">
+        <div class="qs-imagen">
             <img src="imagenes/Inicio_Sesion/Cuadro_3.jpg" alt=""/>
         </div>
       </div>
 </section>
-    <section class="trans-longitudes">
-      <div class="punto">
-        <div class="imagen">
+    <section class="qs-trans-longitudes">
+      <div class="qs-punto">
+        <div class="qs-imagen">
             <img src="imagenes/Inicio_Sesion/Cuadro_4.jpg" alt=""/>
         </div>
-        <div class="texto">
+          <div class="qs-texto ">
+        <div class="qs-justificado">
           <h2>Nuestros Valores</h2>
           <div>
               <strong>Compromiso:</strong> Cumplimos nuestras promesas y asumimos cada proyecto como propio.<br>
@@ -106,6 +124,7 @@
             <strong>Responsabilidad:</strong> Contribuimos al desarrollo sostenible y al bienestar de nuestra comunidad.<br>
             <strong>Trabajo en equipo:</strong> Creemos que juntos logramos mejores resultados para nuestros clientes.
           </div>
+         </div>
         </div>
       </div>
 

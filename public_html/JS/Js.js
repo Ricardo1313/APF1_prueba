@@ -1,52 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Carrusel
+
+  //==================
+  // Variables globales para el nav usuario y login
+  //==================
+  const navUsuario = document.getElementById('nav-usuario');
+  const btnLogout = document.getElementById('btn-logout');
+  const navLoginLi = document.getElementById('nav-login'); // ID que debe tener el <li> del login
+
+  //==================
+  // Carrusel de productos
+  //==================
   const carrusel = document.querySelector('.productos-wrapper');
-  // Acordeón para Preguntas Frecuentes
-  const acordeons = document.querySelectorAll(".acordeon");
-
-  acordeons.forEach(acordeon => {
-    acordeon.addEventListener("click", function () {
-      const respuesta = this.nextElementSibling;
-
-      // Alternar la visibilidad de la respuesta
-      if (respuesta.style.display === "block") {
-        respuesta.style.display = "none";
-      } else {
-        respuesta.style.display = "block";
-      }
-    });
-  });
-
-  // Función para mostrar mensaje de satisfacción
-  function obtenerSatisfaccion() {
-    let respuesta = prompt("¿Te ha servido la sección de preguntas frecuentes? (Si/No)");
-
-    if (respuesta.toLowerCase() === "si") {
-      alert("¡Gracias por tu comentario!");
-    } else if (respuesta.toLowerCase() === "no") {
-      alert("Lamentamos no haberte podido ayudar, estamos trabajando para mejorar.");
-    } else {
-      alert("Respuesta no válida, por favor ingresa 'Si' o 'No'.");
-    }
-  }
-
-  // Asignar función a la encuesta de satisfacción
-  const encuestaBtn = document.getElementById("encuestaBtn"); // Seleccionamos el botón por ID
-  if (encuestaBtn) {
-    encuestaBtn.addEventListener("click", obtenerSatisfaccion); // Asignamos el evento
-  }
-
-
   if (carrusel) {
-    // Duplicar contenido para efecto infinito
     const contenidoOriginal = carrusel.innerHTML;
     carrusel.innerHTML += contenidoOriginal;
 
     const leftArrow = document.createElement('button');
     const rightArrow = document.createElement('button');
 
-    leftArrow.innerHTML = "&#10094;";  // flecha izquierda
-    rightArrow.innerHTML = "&#10095;"; // flecha derecha
+    leftArrow.innerHTML = "&#10094;"; // Flecha izquierda
+    rightArrow.innerHTML = "&#10095;"; // Flecha derecha
 
     leftArrow.classList.add('arrow', 'left-arrow');
     rightArrow.classList.add('arrow', 'right-arrow');
@@ -54,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     carrusel.parentElement.appendChild(leftArrow);
     carrusel.parentElement.appendChild(rightArrow);
 
-    let scrollSpeed = 1;  // velocidad positiva = derecha
+    let scrollSpeed = 1;
     let animationFrameId;
 
     function smoothScroll() {
@@ -86,32 +59,69 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startAutoScroll();
 
+    // Aumentar velocidad al pasar mouse sobre flechas
     leftArrow.addEventListener('mouseenter', () => {
       stopAutoScroll();
-      scrollSpeed = 2;  // izquierda rápido
+      scrollSpeed = 2;
       startAutoScroll();
     });
 
     leftArrow.addEventListener('mouseleave', () => {
       stopAutoScroll();
-      scrollSpeed = 1;  // derecha lento
+      scrollSpeed = 1;
       startAutoScroll();
     });
 
     rightArrow.addEventListener('mouseenter', () => {
       stopAutoScroll();
-      scrollSpeed = -2;  // derecha rápido
+      scrollSpeed = -2;
       startAutoScroll();
     });
 
     rightArrow.addEventListener('mouseleave', () => {
       stopAutoScroll();
-      scrollSpeed = 1;  // derecha lento
+      scrollSpeed = 1;
       startAutoScroll();
     });
   }
 
-  // Quienes somos 
+  //==================
+  // Acordeón para sección Preguntas Frecuentes
+  //==================
+  const acordeons = document.querySelectorAll(".acordeon");
+  acordeons.forEach(acordeon => {
+    acordeon.addEventListener("click", function () {
+      const respuesta = this.nextElementSibling;
+      if (respuesta.style.display === "block") {
+        respuesta.style.display = "none";
+      } else {
+        respuesta.style.display = "block";
+      }
+    });
+  });
+
+  //==================
+  // Encuesta de satisfacción (prompt)
+  //==================
+  function obtenerSatisfaccion() {
+    let respuesta = prompt("¿Te ha servido la sección de preguntas frecuentes? (Si/No)");
+    if (respuesta && respuesta.toLowerCase() === "si") {
+      alert("¡Gracias por tu comentario!");
+    } else if (respuesta && respuesta.toLowerCase() === "no") {
+      alert("Lamentamos no haberte podido ayudar, estamos trabajando para mejorar.");
+    } else {
+      alert("Respuesta no válida, por favor ingresa 'Si' o 'No'.");
+    }
+  }
+
+  const encuestaBtn = document.getElementById("encuestaBtn");
+  if (encuestaBtn) {
+    encuestaBtn.addEventListener("click", obtenerSatisfaccion);
+  }
+
+  //==================
+  // Redirección en sección "Quiénes Somos" al hacer click
+  //==================
   const quienesSomos = document.querySelector('.trans-longitudes:last-of-type');
   if (quienesSomos) {
     quienesSomos.style.cursor = 'pointer';
@@ -120,85 +130,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Elementos modal (comunes para login, registro y recuperación)
-  const modal = document.getElementById('modalMensaje');
-  const textoModal = document.getElementById('textoModal');
-  const btnCerrar = document.getElementById('cerrarModal');
-
-  function mostrarModal(mensaje) {
-    textoModal.textContent = mensaje;
-    modal.style.display = 'flex';
-  }
-
-  btnCerrar.addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
-
-  // Mostrar/Ocultar formulario recuperación
-  const formRecuperacion = document.getElementById('recuperacion-contrasena');
-  const btnMostrarRecuperacion = document.getElementById('mostrar-recuperacion');
-  btnMostrarRecuperacion?.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (formRecuperacion.style.display === 'none' || formRecuperacion.style.display === '') {
-      formRecuperacion.style.display = 'block';
-    } else {
-      formRecuperacion.style.display = 'none';
-    }
-  });
-
-  // Validar formulario de recuperación
-  if (formRecuperacion) {
-    const formRecuperacionForm = formRecuperacion.querySelector('form');
-    formRecuperacionForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const correoRecuperar = formRecuperacionForm['correo-recuperar'].value.trim();
-
-      if (!correoRecuperar) {
-        mostrarModal('Ingrese su correo para recuperar la contraseña.');
-        return;
-      }
-
-      mostrarModal('Se ha enviado un correo de recuperación a ' + correoRecuperar);
-      formRecuperacion.style.display = 'none';
-      formRecuperacionForm.reset();
-    });
-  }
-
-  //======================
-  //   Login y Registro
-  //======================
-
-  // Función para obtener usuarios guardados en localStorage
+  //==================
+  // Funciones para manejo de usuarios en localStorage
+  //==================
   function obtenerUsuarios() {
     const usuarios = localStorage.getItem('usuarios');
     return usuarios ? JSON.parse(usuarios) : [];
   }
 
-  // Función para guardar usuarios en localStorage
   function guardarUsuarios(usuarios) {
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
   }
 
-  // Forms
-  const formLogin = document.querySelector('form[action="#"].form-login'); // para login
-  const formRegistro = document.getElementById('formRegistro'); // para registro, usando id para mayor seguridad
+  //==================
+  // Login y Registro
+  //==================
+  const formLogin = document.querySelector('form[action="#"].form-login');
+  const formRegistro = document.getElementById('formRegistro');
 
-  // Si existe form de registro
+  // Registro de usuario
   if (formRegistro) {
     formRegistro.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const nombre = formRegistro.nombre.value.trim();
       const correo = formRegistro.correo.value.trim();
       const contrasena = formRegistro.contrasena.value.trim();
       const contrasena2 = formRegistro.contrasena2.value.trim();
 
-      if (!correo || !contrasena || !contrasena2) {
+      if (!nombre || !correo || !contrasena || !contrasena2) {
         mostrarModal('Por favor, complete todos los campos.');
         return;
       }
@@ -210,20 +170,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const usuarios = obtenerUsuarios();
 
-      // Verificar si el correo ya existe
       if (usuarios.some(u => u.correo === correo)) {
         mostrarModal('Este correo ya está registrado.');
         return;
       }
 
-      // Agregar nuevo usuario
-      usuarios.push({ correo, contrasena });
+      usuarios.push({ nombre, correo, contrasena });
       guardarUsuarios(usuarios);
 
       mostrarModal('Registro exitoso. Redirigiendo al inicio de sesión...');
       formRegistro.reset();
-
-      console.log('Registro exitoso, preparando redireccion...');
 
       setTimeout(() => {
         modal.style.display = 'none';
@@ -232,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Si existe form de login
+  // Inicio de sesión
   if (formLogin) {
     formLogin.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -246,12 +202,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const usuarios = obtenerUsuarios();
-
-      // Validar usuario
       const usuarioValido = usuarios.find(u => u.correo === correo && u.contrasena === contrasena);
 
       if (usuarioValido) {
         mostrarModal('Inicio de sesión exitoso. ¡Bienvenido!');
+        localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioValido));
         setTimeout(() => {
           modal.style.display = 'none';
           window.location.href = 'index.html';
@@ -262,179 +217,105 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
+  //==================
+  // Mostrar usuario logueado en nav y manejar botón logout
+  //==================
+  function mostrarUsuarioEnNav() {
+    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
 
-  //======================
-  //  Quienes somos'
-  //======================
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
-  const navList = document.querySelector("nav ul");
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = navList.querySelectorAll("a");
-
-
-  // Función para configurar el ARIA y accesibilidad del menú
-  function setupAccessibility() {
-    menuToggle.setAttribute("aria-controls", navList.id || "nav-list");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menú principal");
-    navList.setAttribute("role", "menu");
-    navLinks.forEach(link => {
-      link.setAttribute("role", "menuitem");
-      link.tabIndex = -1;
-    });
-  }
-
-  // Inicializa estilos y accesibilidad
-  setupAccessibility();
-
-  // Función para manejar el toggle del menú en mobile
-  function toggleMenu() {
-    const isOpen = navList.classList.toggle("show");
-    menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-
-    // Controla tabIndex para accesibilidad
-    navLinks.forEach(link => {
-      link.tabIndex = isOpen ? 0 : -1;
-    });
-  }
-
-  // Evento click hamburguesa
-  menuToggle.addEventListener("click", toggleMenu);
-
-  // Función que ajusta tabIndex y menú al redimensionar pantalla
-  function onResize() {
-    if (window.innerWidth > 768) {
-      navList.classList.remove("show");
-      menuToggle.setAttribute("aria-expanded", "false");
-      navLinks.forEach(link => link.tabIndex = 0);
+    if (usuarioLogueado) {
+      navUsuario.style.display = 'inline-flex';
+      document.getElementById('nombre-usuario').textContent = usuarioLogueado.nombre || usuarioLogueado.correo;
+      if (navLoginLi) navLoginLi.style.display = 'none';
     } else {
-      // En móvil, si el menú no está abierto, links no tabulan
-      if (!navList.classList.contains("show")) {
-        navLinks.forEach(link => link.tabIndex = -1);
-      }
+      navUsuario.style.display = 'none';
+      if (navLoginLi) navLoginLi.style.display = 'list-item';
     }
   }
 
-  // Llama al cargar y en resize
-  onResize();
-  window.addEventListener("resize", onResize);
+  mostrarUsuarioEnNav();
 
-  // Cierra menú si se hace click fuera (opcional)
-  document.addEventListener("click", e => {
-    if (
-      window.innerWidth <= 768 &&
-      navList.classList.contains("show") &&
-      !navList.contains(e.target) &&
-      e.target !== menuToggle
-    ) {
-      toggleMenu();
+  // Mostrar/Ocultar botón "Salir" al hacer click en el nombre de usuario
+  navUsuario.addEventListener('click', () => {
+    if (btnLogout.style.display === 'inline-block') {
+      btnLogout.style.display = 'none';
+    } else {
+      btnLogout.style.display = 'inline-block';
     }
   });
 
-});
+  // Ocultar botón "Salir" si se hace click fuera del navUsuario
+  document.addEventListener('click', (e) => {
+    if (!navUsuario.contains(e.target)) {
+      btnLogout.style.display = 'none';
+    }
+  });
 
-////RICARDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-// Función para manejar el botón "Proceder al pago"
-function configurarBotonPago() {
-  const btnProcederPago = document.getElementById('proceder-pago');
-  if (btnProcederPago) {
-    btnProcederPago.addEventListener('click', function(e) {
-      e.preventDefault();
-      const carrito = obtenerCarrito();
-      if (carrito.length === 0) {
-        mostrarModal('El carrito está vacío. Agrega productos antes de proceder al pago.');
-        return;
+  // Evento para cerrar sesión
+  btnLogout.addEventListener('click', () => {
+    localStorage.removeItem('usuarioLogueado');
+    if (navLoginLi) navLoginLi.style.display = 'list-item';
+    navUsuario.style.display = 'none';
+  });
+
+  //==================
+  // Menú responsive para navegación
+  //==================
+  const menuToggle = document.getElementById("menu-toggle");
+  const navList = document.getElementById("nav-list");
+  const navLinks = navList?.querySelectorAll("a");
+
+  if (menuToggle && navList && navLinks) {
+    menuToggle.setAttribute("aria-expanded", "false");
+    navLinks.forEach(link => link.tabIndex = -1);
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navList.classList.toggle("show");
+      menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+      navLinks.forEach(link => {
+        link.tabIndex = isOpen ? 0 : -1;
+      });
+    });
+
+    function onResize() {
+      if (window.innerWidth > 768) {
+        navList.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+        navLinks.forEach(link => link.tabIndex = 0);
+      } else {
+        navLinks.forEach(link => link.tabIndex = -1);
       }
-      // Guardar el carrito actual en localStorage
-      guardarCarrito(carrito);
-      // Redirigir a la página de proceso de pago
-      window.location.href = 'proceso-pago.html';
+    }
+    window.addEventListener("resize", onResize);
+    onResize();
+
+    document.addEventListener("click", e => {
+      if (
+        window.innerWidth <= 768 &&
+        navList.classList.contains("show") &&
+        !navList.contains(e.target) &&
+        e.target !== menuToggle
+      ) {
+        navList.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+        navLinks.forEach(link => link.tabIndex = -1);
+      }
     });
   }
-}
 
-// Llamar a esta función en inicializarCarrito()
-function inicializarCarrito() {
-  // ... código existente ...
-  configurarBotonPago();
-}
+});
 
-// Función para buscar pedidos (usar en seguimiento-pedidos.html)
-function buscarPedido(idPedido) {
-    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-    
-    if (!idPedido) {
-        // Buscar en URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        idPedido = urlParams.get('pedido');
+ //==================
+  // Rellenar Automaticamente Formularios
+  //==================
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
+    if (usuarioLogueado) {
+      const inputNombre = document.getElementById('nombre');
+      const inputEmail = document.getElementById('email');
+
+      if (inputNombre) inputNombre.value = usuarioLogueado.nombre || '';
+      if (inputEmail) inputEmail.value = usuarioLogueado.correo || '';
     }
-
-    if (idPedido) {
-        const pedido = pedidos.find(p => p.id === idPedido);
-        mostrarResultadoPedido(pedido);
-        return pedido;
-    }
-    return null;
-}
-
-// Mostrar resultado en la página
-function mostrarResultadoPedido(pedido) {
-    const resultadoDiv = document.getElementById('resultado-pedido');
-    
-    if (!pedido) {
-        resultadoDiv.innerHTML = `
-            <div class="pedido-no-encontrado">
-                <i class="fas fa-times-circle fa-3x"></i>
-                <h3>Pedido no encontrado</h3>
-                <p>Verifica el número e intenta nuevamente</p>
-            </div>
-        `;
-        return;
-    }
-
-    resultadoDiv.innerHTML = `
-        <div class="pedido-encontrado">
-            <h3>Pedido #${pedido.id}</h3>
-            <p class="fecha"><strong>Fecha:</strong> ${new Date(pedido.fecha).toLocaleDateString()}</p>
-            <p class="estado"><strong>Estado:</strong> <span class="${pedido.estado}">${pedido.estado.toUpperCase()}</span></p>
-            
-            <div class="productos-pedido">
-                <h4>Productos:</h4>
-                ${pedido.productos.map(producto => `
-                    <div class="producto">
-                        <p>${producto.nombre} - Cantidad: ${producto.cantidad}</p>
-                        <p class="precio">S/${(producto.precio * producto.cantidad).toFixed(2)}</p>
-                    </div>
-                `).join('')}
-            </div>
-            
-            ${pedido.cupon ? `
-                <div class="cupon-aplicado">
-                    <p><strong>Cupón aplicado:</strong> ${pedido.cupon.codigo} (${pedido.cupon.descuento}% de descuento)</p>
-                </div>
-            ` : ''}
-            
-            <div class="total-pedido">
-                <p><strong>Total:</strong> <span>S/${pedido.total.toFixed(2)}</span></p>
-            </div>
-        </div>
-    `;
-}
-
-// Inicializar búsqueda al cargar la página
-if (document.getElementById('resultado-pedido')) {
-    document.getElementById('buscar-pedido').addEventListener('click', () => {
-        const numeroPedido = document.getElementById('numero-pedido').value.trim();
-        buscarPedido(numeroPedido);
-    });
-
-    // Buscar automáticamente si hay parámetro en URL
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('pedido')) {
-        buscarPedido();
-    }
-}
+  });
